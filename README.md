@@ -1,5 +1,5 @@
 # Swiftcord
-![MeowDB](https://i.imgur.com/1Tq6KDb.png)
+![Swiftcord](https://i.imgur.com/1Tq6KDb.png)
 
 Simple & easy to use image manipulation module.
 
@@ -117,10 +117,10 @@ let image = await canva.Welcome()
 let attachment = new Discord.MessageAttachment(image.toBuffer(), "welcome.png");
 return message.channel.send(attachment);
 ```
-![image](https://i.atzu.xyz/atzu-caba.png)
+![image](https://i.imgur.com/HhV6X8c.png)
 
 # Preview
-![image](https://i.atzu.xyz/atzu-ddad.png)
+![image](https://i.imgur.com/P68XUqq.png)
 
 # Join Our Discord Server
 **[discord.gg/q99CQEP](https://discord.gg/q99CQEP)**
