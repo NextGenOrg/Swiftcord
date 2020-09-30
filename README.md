@@ -1,4 +1,8 @@
+`Canvacord it sucks, I won't let them come and insult the support server`
+- Atzu 
+
 # Swiftcord
+
 ![Swiftcord](https://i.imgur.com/1Tq6KDb.png)
 
 Simple & easy to use image manipulation module.
