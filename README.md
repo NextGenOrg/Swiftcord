@@ -1,4 +1,4 @@
-`Canvacord it sucks, I won't let them come and insult the support server`
+`I would like to apologize that I lied to you all and I copied this pacakge from Canvacord and didnt even mentioned about it , SO lets say thanks to Canvacord`
 - Atzu 
 
 # Swiftcord
