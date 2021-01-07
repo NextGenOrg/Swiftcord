@@ -2,7 +2,6 @@
 - Atzu 
 
 # Swiftcord
-
 ![Swiftcord](https://i.imgur.com/1Tq6KDb.png)
 
 Simple & easy to use image manipulation module.
@@ -69,8 +68,8 @@ create();
 ```js
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const Swiftcord = require("swiftcord");
-const canva = new Swiftcord.Canvas();
+const { Swiftcord } = require("swiftcord");
+const cord = new Swiftcord();
 
 client.on("ready", () => {
     console.log("I'm online!");
@@ -80,15 +79,29 @@ client.on("message", async (message) => {
     if (message.author.bot) return;
     if (message.content === "!trigger") {
         let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
-        let image = await canva.trigger(avatar);
+        let image = await cord.trigger(avatar);
         let attachment = new Discord.MessageAttachment(image, "triggered.gif");
         return message.channel.send(attachment);
     }
     if (message.content === "!delete") {
-        let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
-        let image = await canva.delete(avatar);
-        let attachment = new Discord.MessageAttachment(image, "deleted.png");
-        return message.channel.send(attachment);
+        let spotify = message.member.presence.activities.filter(x => x.name == 'Spotify' && x.type == 'LISTENING')[0];
+
+        let trackIMG = `https://i.scdn.co/image/${spotify.assets.largeImage.slice(8)}`;
+        let trackName = spotify.details;
+        let trackAuthor = spotify.state;
+        let trackAlbum = spotify.assets.largeText;
+
+        const data = await cord.Spotify({
+            title: trackName,
+            artist: trackAuthor,
+            album: trackAlbum,
+            image: trackIMG,
+            start: spotify.timestamps.start,
+            end: spotify.timestamps.end
+        });
+        const img = cord.write(data, "spotify.png");
+
+        return message.channel.send(img);
     }
 });
 
@@ -100,31 +113,26 @@ client.login("Your_Bot_Token_here");
 ```js
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const Swiftcord = require("swiftcord");
-const canva = new Swiftcord.Canvas();
+const { Swiftcord } = require("swiftcord");
+const cord = new Swiftcord();
 
-let image = await canva.Welcome()
-    .setUsername("Atzu🥀")
-    .setDiscriminator("0001")
+let image = await cord.Welcome()
+    .setUsername(message.author.username)
+    .setDiscriminator(message.author.discriminator)
     .setMemberCount("18")
-    .setGuildName("Pruebas Bots")
-    .setAvatar("https://www.site.com/avatar.jpg")
-    .setColor("border", "#7289da")
-    .setColor("username-box", "#7289da")
-    .setColor("discriminator-box", "#7289da")
-    .setColor("message-box", "#7289da")
-    .setColor("title", "#7289da")
-    .setColor("avatar", "#7289da")
-    .setBackground("https://i.atzu.xyz/atzu-cabc.png")
+    .setGuildName(message.guild.name)
+    .setGuildIcon(message.guild.iconURL({ format: "png" }))
+    .setAvatar(message.member.user.displayAvatarURL({ format: "png", size: 2048 }))
+    .setBackground("https://img.kirameki.one/LTqHsfYS.jpg")
     .toAttachment();
-      
-let attachment = new Discord.MessageAttachment(image.toBuffer(), "welcome.png");
+const img = cord.write(image, "welcome.png");
+
 return message.channel.send(attachment);
 ```
-![image](https://i.imgur.com/HhV6X8c.png)
+![image](https://i.imgur.com/fieddDc.png)
 
 # Preview
 ![image](https://i.imgur.com/P68XUqq.png)
 
 # Join Our Discord Server
-**[discord.gg/q99CQEP](https://discord.gg/q99CQEP)**
+[![https://discord.gg/q99CQEP](https://invite.atzu.xyz/svg/q99CQEP "https://discord.gg/q99CQEP")](https://discord.gg/q99CQEP)
