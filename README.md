@@ -135,4 +135,4 @@ return message.channel.send(attachment);
 ![image](https://i.imgur.com/P68XUqq.png)
 
 # Join Our Discord Server
-[![https://discord.gg/q99CQEP](https://invite.atzu.xyz/svg/q99CQEP "https://discord.gg/q99CQEP")](https://discord.gg/q99CQEP)
+[![https://discord.gg/q99CQEP](http://invite.atzu.studio/svg/q99CQEP "https://discord.gg/q99CQEP")](https://discord.gg/q99CQEP)
